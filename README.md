@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Auction Bidding Platform
 
-First, run the development server:
+This repository contains two microservices: an **Admin Panel** and an **Auction Bidding** system. The **Auction Bidding** microservice handles the auction process but does not yet include the functionality to determine the winner due to the 1-day time duration requirement.
+
+## Features
+
+### Admin Panel
+- Manage auctions, users, and bidding processes.
+- Monitor ongoing auctions and bidding activity.
+
+### Auction Bidding
+- Place bids on items in real-time.
+- View auction details and current highest bids.
+
+## Prerequisites
+
+Before running the project locally, ensure you have the following installed:
+
+- Node.js (v14.x or later)
+- npm (v6.x or later)
+
+## Setup Instructions
+
+### 1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/auction-bidding-platform.git
+cd auction-bidding-platform
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Navigate to each microservice directory and install the necessary Node packages:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+# For Admin Panel
+cd admin-panel
+npm install
 
-## Learn More
+# For Auction Bidding
+cd ../auction-bidding
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Create Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a `.env` file in the root of each microservice directory with the following variables:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+# .env file
 
-## Deploy on Vercel
+# Backend URL
+BACKEND_URL=http://your-backend-url
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Secret Key
+SECRET_KEY=your-secret-key
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Replace `your-backend-url` with the actual backend URL and `your-secret-key` with your secret key.
+
+### 4. Run the Microservices
+
+Navigate to each microservice directory and run the following command to start the services:
+
+```bash
+# For Admin Panel
+cd admin-panel
+npm start
+
+# For Auction Bidding
+cd ../auction-bidding
+npm start
+```
+
+### 5. Access the Services
+
+- **Admin Panel**: Open your browser and navigate to `http://localhost:3000`.
+## Future Enhancements
+
+- Implementing the logic to determine the auction winner after a 1-day duration.
+- Adding additional features to the Admin Panel for better auction management.
+
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any changes or improvements.
+
+## License
+
+This project is licensed under the MIT License.
